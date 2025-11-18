@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Bath, Wind } from "lucide-react";
-import room1 from "@/assets/room-1.jpg";
-import room2 from "@/assets/room-2.jpg";
 
 const RoomShowcase = () => {
   const rooms = [
     {
       id: 1,
       name: "Deluxe Room with Attached Bathroom",
-      image: room1,
+      image: "/1.webp",
       attachedBathroom: true,
       ac: true,
       description: "Spacious and comfortable with modern amenities",
@@ -17,7 +15,7 @@ const RoomShowcase = () => {
     {
       id: 2,
       name: "Premium Room with Attached Bathroom",
-      image: room2,
+      image: "/2.webp",
       attachedBathroom: true,
       ac: true,
       description: "Elegant room with natural lighting and cozy atmosphere",

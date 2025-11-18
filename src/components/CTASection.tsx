@@ -22,7 +22,7 @@ const CTASection = () => {
             className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] rounded-sm overflow-hidden order-2 lg:order-1"
           >
             <img
-              src="/hero-5.webp"
+              src="/image-5.webp"
               alt="Alora Home Stay - Your perfect getaway"
               className="w-full h-full object-cover"
               loading="lazy"

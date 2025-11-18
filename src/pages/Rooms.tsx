@@ -1,9 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Bath, Wind, Bed, Users, Cat } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import room1 from "@/assets/room-1.jpg";
-import room2 from "@/assets/room-2.jpg";
-import room3 from "@/assets/room-3.jpg";
 import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import SEO from "@/components/SEO";
@@ -13,7 +10,7 @@ const Rooms = () => {
     {
       id: 1,
       name: "Deluxe Room with Attached Bathroom",
-      image: room1,
+      image: "/1.webp",
       attachedBathroom: true,
       ac: true,
       capacity: "2-3 guests",
@@ -32,7 +29,7 @@ const Rooms = () => {
     {
       id: 2,
       name: "Premium Room with Attached Bathroom",
-      image: room2,
+      image: "/2.webp",
       attachedBathroom: true,
       ac: true,
       capacity: "2-4 guests",
@@ -51,7 +48,7 @@ const Rooms = () => {
     {
       id: 3,
       name: "Standard Cozy Room",
-      image: room3,
+      image: "/3.webp",
       attachedBathroom: false,
       ac: false,
       capacity: "1-2 guests",

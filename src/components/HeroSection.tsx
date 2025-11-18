@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import hero1 from "@/assets/hero-1.webp";
-import hero2 from "@/assets/hero-2.webp";
-import hero3 from "@/assets/hero-3.webp";
+
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [hero1, hero2, hero3];
+  const slides = ["/hero-1.webp", "/hero-2.webp", "/hero-3.webp"];
 
   useEffect(() => {
     const timer = setInterval(() => {

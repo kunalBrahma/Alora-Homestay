@@ -1,6 +1,4 @@
 import { Heart, Home, Users, Coffee } from "lucide-react";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
 import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import SEO from "@/components/SEO";
@@ -106,7 +104,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="relative overflow-hidden rounded-sm shadow-xl group h-96">
               <img
-                src={hero2}
+                src="/2.webp"
                 alt="Living Area"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -119,7 +117,7 @@ const About = () => {
             </div>
             <div className="relative overflow-hidden rounded-sm shadow-xl group h-96">
               <img
-                src={hero3}
+                src="/image-3.webp"
                 alt="Dining Area"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
