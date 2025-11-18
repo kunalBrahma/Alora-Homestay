@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.svg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,19 +35,15 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img
-              src={logo}
+              src="/logo.svg"
               alt="Alora Home Stay Logo"
-              className="h-14 w-14 object-contain"
+              className="h-20 w-20 object-contain"
             />
-            <div className="hidden md:block">
-              <span className={`text-xl font-bold ${isScrolled ? "text-foreground" : "text-white"}`}>
-                Alora Home Stay
-              </span>
-            </div>
+            
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,7 +67,13 @@ const Navbar = () => {
               asChild
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              <Link to="/contact">Book Now</Link>
+              <a
+                href="https://api.whatsapp.com/send?phone=917099016525&text=Hello! I'm interested in booking a room at Alora Homestay. Please let me know about availability and pricing."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book Now
+              </a>
             </Button>
           </div>
 
@@ -85,34 +86,69 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Overlay */}
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-4 animate-fade-in">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block py-3 px-4 text-sm font-medium transition-colors ${
-                  isActive(link.path)
-                    ? "text-primary bg-muted"
-                    : "text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="px-4 pt-2">
-              <Button
-                asChild
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Book Now
-                </Link>
-              </Button>
+          <>
+            {/* Backdrop */}
+            <div
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            {/* Sidebar */}
+            <div className="fixed top-0 left-0 h-full w-[80%] bg-background z-50 md:hidden shadow-2xl animate-slide-in-left">
+              <div className="flex flex-col h-full">
+                {/* Header with close button */}
+                <div className="flex items-center justify-between p-4 border-b">
+                  <img
+                    src="/logo.svg"
+                    alt="Alora Home Stay Logo"
+                    className="h-12 w-12 object-contain"
+                  />
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 text-foreground hover:text-primary transition-colors"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+                
+                {/* Navigation Links */}
+                <div className="flex-1 overflow-y-auto py-4">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block py-4 px-6 text-base font-medium transition-colors ${
+                        isActive(link.path)
+                          ? "text-primary bg-muted border-l-4 border-primary"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* Book Now Button */}
+                <div className="p-4 border-t">
+                  <Button
+                    asChild
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  >
+                    <a
+                      href="https://api.whatsapp.com/send?phone=917099016525&text=Hello! I'm interested in booking a room at Alora Homestay. Please let me know about availability and pricing."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Book Now
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </nav>

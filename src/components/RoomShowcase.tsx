@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Bath, Wind } from "lucide-react";
 import room1 from "@/assets/room-1.jpg";
 import room2 from "@/assets/room-2.jpg";
-import room3 from "@/assets/room-3.jpg";
 
 const RoomShowcase = () => {
   const rooms = [
@@ -23,58 +22,52 @@ const RoomShowcase = () => {
       ac: true,
       description: "Elegant room with natural lighting and cozy atmosphere",
     },
-    {
-      id: 3,
-      name: "Standard Cozy Room",
-      image: room3,
-      attachedBathroom: false,
-      ac: false,
-      description: "Warm and inviting space perfect for peaceful stays",
-    },
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl text-foreground mb-4">
             Our Rooms
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Choose from our thoughtfully designed rooms, each offering comfort and tranquility
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {rooms.map((room, index) => (
             <div
               key={room.id}
-              className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group animate-fade-in"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="relative h-[500px] md:h-[600px] overflow-hidden rounded-sm group"
             >
-              <div className="relative overflow-hidden h-64">
-                <img
-                  src={room.image}
-                  alt={room.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-2">
+              <img
+                src={room.image}
+                alt={room.name}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              
+              {/* Text overlay in bottom right */}
+              <div className="absolute bottom-0 right-0 p-6 md:p-8 text-right">
+                <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2">
                   {room.name}
                 </h3>
-                <p className="text-muted-foreground mb-4">{room.description}</p>
+                <p className="text-white/90 mb-4 max-w-md ml-auto">
+                  {room.description}
+                </p>
                 
-                <div className="flex gap-4 mb-4">
+                <div className="flex gap-4 mb-4 justify-end">
                   {room.attachedBathroom && (
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Bath className="w-4 h-4 text-primary" />
+                    <div className="flex items-center gap-2 text-sm text-white/90">
+                      <Bath className="w-4 h-4 text-white" />
                       <span>Attached Bath</span>
                     </div>
                   )}
                   {room.ac && (
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Wind className="w-4 h-4 text-primary" />
+                    <div className="flex items-center gap-2 text-sm text-white/90">
+                      <Wind className="w-4 h-4 text-white" />
                       <span>AC</span>
                     </div>
                   )}
@@ -82,7 +75,7 @@ const RoomShowcase = () => {
 
                 <Button
                   asChild
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="bg-white text-foreground hover:bg-white/90"
                 >
                   <Link to="/rooms">View Details</Link>
                 </Button>

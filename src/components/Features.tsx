@@ -35,13 +35,13 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-warm-beige">
+    <section className="py-16 md:py-24 bg-warm-beige">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl text-foreground mb-4">
             Why Choose Alora?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Experience the perfect blend of homely comfort and modern amenities
           </p>
         </div>
@@ -50,13 +50,13 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 group animate-fade-in"
+              className="bg-card p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 group animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <feature.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">
+              <h3 className="text-xl text-foreground mb-3">
                 {feature.title}
               </h3>
               <p className="text-muted-foreground">{feature.description}</p>

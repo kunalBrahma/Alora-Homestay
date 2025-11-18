@@ -1,11 +1,12 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { Bath, Wind, Bed, Users } from "lucide-react";
+import { Bath, Wind, Bed, Users, Cat } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import room1 from "@/assets/room-1.jpg";
 import room2 from "@/assets/room-2.jpg";
 import room3 from "@/assets/room-3.jpg";
+import PageHeader from "@/components/PageHeader";
+import CTASection from "@/components/CTASection";
+import SEO from "@/components/SEO";
 
 const Rooms = () => {
   const rooms = [
@@ -70,20 +71,17 @@ const Rooms = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-      
-      {/* Header */}
-      <section className="pt-32 pb-16 bg-warm-beige">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-4">
-            Our Rooms
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Choose from our selection of thoughtfully designed rooms, each crafted to provide
-            comfort, peace, and a homely atmosphere for your stay in Guwahati.
-          </p>
-        </div>
-      </section>
+      <SEO
+        title="Rooms & Accommodation in Guwahati | Alora Homestay - Deluxe & Premium Rooms"
+        description="Explore our spacious rooms in Guwahati homestay. Deluxe rooms with attached bathroom, AC, premium bedding. Perfect for families. Book your comfortable stay at Alora Homestay Guwahati today!"
+        keywords="rooms in guwahati homestay, deluxe room guwahati, homestay rooms guwahati, ac room guwahati, attached bathroom room guwahati, premium room guwahati, family room guwahati, homestay accommodation guwahati, budget room guwahati, comfortable room guwahati"
+        canonical="/rooms"
+      />
+      <PageHeader
+        title="Our Rooms"
+        description="Choose from our selection of thoughtfully designed rooms, each crafted to provide comfort, peace, and a homely atmosphere for your stay in Guwahati."
+        backgroundImage="/header2.webp"
+      />
 
       {/* Rooms Detail Section */}
       <section className="py-16 bg-background">
@@ -97,7 +95,7 @@ const Rooms = () => {
             >
               {/* Image */}
               <div className="w-full lg:w-1/2">
-                <div className="relative overflow-hidden rounded-2xl shadow-xl group">
+                <div className="relative overflow-hidden rounded-sm shadow-xl group">
                   <img
                     src={room.image}
                     alt={room.name}
@@ -108,7 +106,7 @@ const Rooms = () => {
 
               {/* Details */}
               <div className="w-full lg:w-1/2">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                <h2 className="text-3xl md:text-5xl text-foreground mb-4">
                   {room.name}
                 </h2>
                 <p className="text-muted-foreground mb-6">{room.description}</p>
@@ -139,7 +137,7 @@ const Rooms = () => {
 
                 {/* Amenities */}
                 <div className="mb-6">
-                  <h3 className="font-bold text-lg mb-3">Amenities</h3>
+                  <h3 className="text-lg mb-3">Amenities</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {room.amenities.map((amenity, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm">
@@ -155,7 +153,14 @@ const Rooms = () => {
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary/90"
                 >
-                  <Link to="/contact">Book This Room</Link>
+                  <a
+                    href={`https://api.whatsapp.com/send?phone=917099016525&text=${encodeURIComponent(`Hello! I'm interested in booking: ${room.name}. Please let me know about availability and pricing.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp className="w-5 h-5 mr-2" />
+                    Book This Room
+                  </a>
                 </Button>
               </div>
             </div>
@@ -164,41 +169,7 @@ const Rooms = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-warm-beige">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Ready to Book Your Stay?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Contact us today to check availability and make your reservation
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              <a
-                href="https://wa.me/919876543210"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp Us
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+     <CTASection />
     </div>
   );
 };
