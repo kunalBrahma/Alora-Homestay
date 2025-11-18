@@ -17,8 +17,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: "info@alorahomestay.com",
-      link: "mailto:info@alorahomestay.com",
+      details: "info@alorahomestay.in",
+      link: "mailto:info@alorahomestay.in",
     },
     {
       icon: MapPin,

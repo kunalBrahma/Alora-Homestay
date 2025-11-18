@@ -90,7 +90,7 @@ const CancellationPolicy = () => {
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Phone: <a href="tel:+917099016525" className="text-primary hover:underline">+91 70990 16525</a></li>
                   <li>WhatsApp: <a href="https://api.whatsapp.com/send?phone=917099016525" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Click here to message us</a></li>
-                  <li>Email: <a href="mailto:info@alorahomestay.com" className="text-primary hover:underline">info@alorahomestay.com</a></li>
+                  <li>Email: <a href="mailto:info@alorahomestay.in" className="text-primary hover:underline">info@alorahomestay.in</a></li>
                 </ul>
                 <p className="mt-4">
                   Please provide your booking reference number (if available) and the reason for cancellation 

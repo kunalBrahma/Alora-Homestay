@@ -75,7 +75,7 @@ const TermsConditions = () => {
                   For any questions regarding these terms and conditions, please contact us:
                 </p>
                 <p className="mt-2">
-                  Email: <a href="mailto:info@alorahomestay.com" className="text-primary hover:underline">info@alorahomestay.com</a><br />
+                  Email: <a href="mailto:info@alorahomestay.in" className="text-primary hover:underline">info@alorahomestay.in</a><br />
                   Phone: <a href="tel:+917099016525" className="text-primary hover:underline">+91 70990 16525</a>
                 </p>
               </div>
